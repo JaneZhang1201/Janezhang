@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  {% if site_profile.photo %}
+    <img class="avatar" src="{{ site_profile.photo.url }}" alt="Photo of {{ site_profile.name }}" width="128" height="128">
+  {% endif %}
+  <div>
+    <h1>Hi, I'm {{ site_profile.name|default:"Jane Zhang" }}.</h1>
+    {% if site_profile.headline %}<p class="lead">{{ site_profile.headline }}</p>{% endif %}
+    {% if site_profile.intro %}{{ site_profile.intro|linebreaks }}{% endif %}
+    <p class="actions">
+      <a class="button" href="{% url 'cv' %}">View my CV</a>
+      <a class="button button-secondary" href="{% url 'contact' %}">Say hello</a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <h2>Recent writing</h2>
+    <a href="{% url 'blog:list' %}">All posts &rarr;</a>
+  </div>
+  {% if recent_posts %}
+    <div class="cards">
+      {% for post in recent_posts %}{% include "blog/_post_card.html" %}{% endfor %}
+    </div>
+  {% else %}
+    <p class="muted">No posts yet.</p>
+  {% endif %}
+</section>
+{% endblock %}

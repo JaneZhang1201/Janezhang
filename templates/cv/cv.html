@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}CV · {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="cv">
+  <header class="cv-header">
+    <h1>{{ site_profile.name|default:"Jane Zhang" }}</h1>
+    {% if site_profile.headline %}<p class="lead">{{ site_profile.headline }}</p>{% endif %}
+    <p class="meta">
+      {% if site_profile.location %}{{ site_profile.location }}{% endif %}
+      {% if site_profile.location and site_profile.email %} · {% endif %}
+      {% if site_profile.email %}<a href="mailto:{{ site_profile.email }}">{{ site_profile.email }}</a>{% endif %}
+    </p>
+    {% if site_profile.cv_file %}<p><a class="button" href="{{ site_profile.cv_file.url }}" download>Download CV (PDF)</a></p>{% endif %}
+  </header>
+
+  {% if site_profile.summary %}
+  <section>
+    <h2>Professional summary</h2>
+    {{ site_profile.summary|linebreaks }}
+  </section>
+  {% endif %}
+
+  {% if experiences %}
+  <section>
+    <h2>Work history</h2>
+    {% for job in experiences %}
+      <div class="cv-item">
+        <div class="cv-item-head">
+          <h3>{{ job.role }} <span class="muted">· {{ job.organisation }}{% if job.location %}, {{ job.location }}{% endif %}</span></h3>
+          <p class="meta">{{ job.start_date|date:"M Y" }} – {% if job.end_date %}{{ job.end_date|date:"M Y" }}{% else %}Present{% endif %}</p>
+        </div>
+        {% with points=job.bullet_points %}{% if points %}
+          <ul>{% for point in points %}<li>{{ point }}</li>{% endfor %}</ul>
+        {% endif %}{% endwith %}
+      </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if education %}
+  <section>
+    <h2>Education</h2>
+    {% for item in education %}
+      <div class="cv-item">
+        <div class="cv-item-head">
+          <h3>{{ item.qualification }}{% if item.subject %}: {{ item.subject }}{% endif %}</h3>
+          {% if item.start_year or item.end_year %}<p class="meta">{{ item.start_year|default:"" }}{% if item.start_year and item.end_year %} – {% endif %}{{ item.end_year|default:"" }}</p>{% endif %}
+        </div>
+        <p class="muted">{{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}</p>
+      </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {% if skills %}
+  <section>
+    <h2>Skills</h2>
+    <ul class="tags">{% for skill in skills %}<li>{{ skill.name }}</li>{% endfor %}</ul>
+  </section>
+  {% endif %}
+
+  {% if site_profile.hobbies %}
+  <section>
+    <h2>Hobbies</h2>
+    {{ site_profile.hobbies|linebreaks }}
+  </section>
+  {% endif %}
+
+  {% if not site_profile and not experiences and not education and not skills %}
+    <p class="muted">CV details haven't been added yet.</p>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,141 @@
+[
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "What I learned this term",
+      "slug": "what-i-learned-this-term",
+      "summary": "",
+      "body": "I have a more in-depth understanding of what programming is and did a lot of practice to training my skill. One of the most helpful project for me is concepts of algorithm and data structure, I have no idea about the corn concept of computer before. I also learn more relevant content, just like computer mathematics, logic, and some AI-related algorithms.\n  During the holiday, I mastered some practical skills through self-study of python and Django web framework. At the same time, learned how to use HTML and CSS to write simple web pages. Also, I participated in an internship to exercise my abilities, broaden my horizons and set new goals. Of course, there has also been a significant improvement in my English skill because I got more chance to have a conversation with native speaker.",
+      "is_published": true,
+      "published_at": "2020-08-30T12:01:00Z",
+      "created_at": "2020-08-30T12:00:00Z",
+      "updated_at": "2020-08-30T12:00:00Z"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "What I expect next term",
+      "slug": "what-i-expect-next-term",
+      "summary": "",
+      "body": "Firstly, I want to complete all the professional knowledge that I should learn, and I will make every effort to learn them more thoroughly, I hope that I can get more guidance on coding and the knowledge behind it. At the same time, I am very interested in \nMachine learning and computational linguistics. I wish I can learn something useful, and fine out how interesting it is a type of knowledge.\nFinally, as an international student, I have a very hard time with gathering and dealing with important information, I am very slow and spend a lot of time doing useless work. It is also a bit difficult for me to integrate into the environment. Sometimes I will be ashamed to ask my own questions/ideas, especially when I am not sure who can help me, I am eager to get support and help from the college.",
+      "is_published": true,
+      "published_at": "2020-08-30T12:02:00Z",
+      "created_at": "2020-08-30T12:00:00Z",
+      "updated_at": "2020-08-30T12:00:00Z"
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      "title": "The diagram of my blog",
+      "slug": "the-diagram-of-my-blog",
+      "summary": "",
+      "body": "I created three apps and two of them hold the data, one receive data from the visitors.\nBlog hold all my articles, and those articles are displayed by using Django view. it helps me to retrieve the data from database, and mash the data with the template. cv keep my Curriculum Vitae picture, and this picture as a data is displayed in the same way. And interaction will receive the evaluation and store them. I also want to mention templates that I create, I use the inheritable attribute of template and make sure every page have a navbar and footer. and the navbar can lead viister go in to the right page that they want to visit.\nDjango framework encapsulate the module view logic and business logic. It can do much more then respond to user in put and interact with data.",
+      "is_published": true,
+      "published_at": "2020-08-30T12:03:00Z",
+      "created_at": "2020-08-30T12:00:00Z",
+      "updated_at": "2020-08-30T12:00:00Z"
+    }
+  },
+  {
+    "model": "cv.profile",
+    "pk": 1,
+    "fields": {
+      "name": "Zhaohan (Jane) Zhang",
+      "headline": "Computer Science graduate, University of Birmingham",
+      "intro": "Welcome to my personal site. Here you'll find my CV, things I've written, and a way to get in touch.",
+      "summary": "Confident and proactive, with a strong capacity for learning and good self-management.\nRigorous in my work and quick to adapt to new teams and environments.\nGood communicator with a strong sense of responsibility — full of energy and patient.",
+      "hobbies": "I have a strong interest in music — I sing and play the piano, and formed a band with friends in high school. I also enjoy running and reading novels, especially mysteries.",
+      "email": "zhaohan.uu@hotmail.com",
+      "location": "",
+      "github_url": "https://github.com/JaneZhang1201",
+      "linkedin_url": "",
+      "photo": "",
+      "cv_file": ""
+    }
+  },
+  {
+    "model": "cv.experience",
+    "pk": 1,
+    "fields": {
+      "role": "Brand Ambassador",
+      "organisation": "Mandarin Consulting",
+      "location": "Manchester, UK",
+      "start_date": "2020-08-01",
+      "end_date": "2020-10-31",
+      "description": "Grew our following across social media platforms through a considered content strategy, attracting the attention of potential customers.\nWorked as part of a team, developing time management, problem solving and the ability to work independently."
+    }
+  },
+  {
+    "model": "cv.education",
+    "pk": 1,
+    "fields": {
+      "qualification": "Bachelor of Science",
+      "subject": "Computer Science",
+      "institution": "University of Birmingham",
+      "location": "Birmingham, UK",
+      "start_year": null,
+      "end_year": null
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 1,
+    "fields": {
+      "name": "Java",
+      "order": 1
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 2,
+    "fields": {
+      "name": "Python",
+      "order": 2
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 3,
+    "fields": {
+      "name": "Problem solving",
+      "order": 3
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 4,
+    "fields": {
+      "name": "Communication",
+      "order": 4
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 5,
+    "fields": {
+      "name": "Teamwork",
+      "order": 5
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 6,
+    "fields": {
+      "name": "Public relations",
+      "order": 6
+    }
+  },
+  {
+    "model": "cv.skill",
+    "pk": 7,
+    "fields": {
+      "name": "Microsoft Word & PowerPoint",
+      "order": 7
+    }
+  }
+]

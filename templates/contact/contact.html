@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Contact · {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>Get in touch</h1>
+<p class="lead">Questions, feedback or just saying hello — leave a message below.</p>
+
+<form method="post" class="form" novalidate>
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  {% for field in form.hidden_fields %}{{ field }}{% endfor %}
+  {% for field in form.visible_fields %}
+    <div class="field{% if field.field.widget.input_type == 'checkbox' %} field-checkbox{% endif %}">
+      {% if field.field.widget.input_type == 'checkbox' %}
+        {{ field }} {{ field.label_tag }}
+      {% else %}
+        {{ field.label_tag }} {{ field }}
+      {% endif %}
+      {% for error in field.errors %}<p class="error">{{ error }}</p>{% endfor %}
+    </div>
+  {% endfor %}
+  <button type="submit" class="button">Send message</button>
+</form>
+{% endblock %}
