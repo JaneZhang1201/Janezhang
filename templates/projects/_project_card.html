@@ -1,0 +1,12 @@
+<article class="card project-card">
+  {% if project.image %}
+    <a href="{{ project.get_absolute_url }}"><img class="card-image" src="{{ project.image.url }}" alt="" loading="lazy"></a>
+  {% endif %}
+  <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>
+  {% if project.summary %}<p>{{ project.summary }}</p>{% endif %}
+  <p class="meta project-meta">
+    {% if project.language %}<span>{{ project.language }}</span>{% endif %}
+    {% if project.stars %}<span>★ {{ project.stars }}</span>{% endif %}
+    {% if project.last_pushed_at %}<span>Updated {{ project.last_pushed_at|date:"M Y" }}</span>{% endif %}
+  </p>
+</article>

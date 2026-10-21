@@ -16,6 +16,18 @@
   </div>
 </section>
 
+{% if featured_projects %}
+<section>
+  <div class="section-heading">
+    <h2>Featured projects</h2>
+    <a href="{% url 'projects:list' %}">All projects &rarr;</a>
+  </div>
+  <div class="cards cards-2">
+    {% for project in featured_projects %}{% include "projects/_project_card.html" %}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <section>
   <div class="section-heading">
     <h2>Recent writing</h2>

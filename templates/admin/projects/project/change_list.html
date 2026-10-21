@@ -1,0 +1,11 @@
+{% extends "admin/change_list.html" %}
+
+{% block object-tools-items %}
+  <li>
+    <form method="post" action="{% url 'admin:projects_project_import_github' %}" style="display:inline">
+      {% csrf_token %}
+      <button type="submit" class="button" style="padding:4px 12px">Import from GitHub</button>
+    </form>
+  </li>
+  {{ block.super }}
+{% endblock %}

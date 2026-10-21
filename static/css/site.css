@@ -316,3 +316,36 @@ img { max-width: 100%; height: auto; }
   border-radius: var(--radius);
   padding: 0.75rem 1rem;
 }
+
+/* Projects */
+@media (min-width: 640px) {
+  .cards-2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+.project-card { display: flex; flex-direction: column; }
+.project-card .project-meta { margin-top: auto; padding-top: 0.5rem; }
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.card-image {
+  display: block;
+  width: calc(100% + 2.5rem);
+  max-width: none;
+  margin: -1.1rem -1.25rem 1rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.project-image {
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.post .tags { margin-bottom: 1rem; }

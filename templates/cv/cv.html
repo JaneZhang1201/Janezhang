@@ -54,6 +54,20 @@
   </section>
   {% endif %}
 
+  {% if projects %}
+  <section>
+    <h2>Selected projects</h2>
+    {% for project in projects %}
+      <div class="cv-item">
+        <div class="cv-item-head">
+          <h3><a href="{{ project.get_absolute_url }}">{{ project.title }}</a>{% if project.language %} <span class="muted">· {{ project.language }}</span>{% endif %}</h3>
+        </div>
+        {% if project.summary %}<p>{{ project.summary }}</p>{% endif %}
+      </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
   {% if skills %}
   <section>
     <h2>Skills</h2>
@@ -68,7 +82,7 @@
   </section>
   {% endif %}
 
-  {% if not site_profile and not experiences and not education and not skills %}
+  {% if not site_profile and not experiences and not education and not skills and not projects %}
     <p class="muted">CV details haven't been added yet.</p>
   {% endif %}
 </div>

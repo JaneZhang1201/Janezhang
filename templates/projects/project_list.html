@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Projects · {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>Projects</h1>
+<p class="lead">
+  Things I've built.
+  {% if site_profile.github_url %}More on <a href="{{ site_profile.github_url }}">GitHub</a>.{% endif %}
+</p>
+{% if projects %}
+  <div class="cards cards-2">
+    {% for project in projects %}{% include "projects/_project_card.html" %}{% endfor %}
+  </div>
+{% else %}
+  <p class="muted">No projects yet.</p>
+{% endif %}
+{% endblock %}

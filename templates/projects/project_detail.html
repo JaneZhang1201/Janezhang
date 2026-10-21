@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} · {{ block.super }}{% endblock %}
+{% block description %}{{ project.summary|default:project.title }}{% endblock %}
+
+{% block content %}
+<article class="post">
+  <header>
+    <p class="meta"><a href="{% url 'projects:list' %}">&larr; All projects</a></p>
+    <h1>{{ project.title }}</h1>
+    {% if project.summary %}<p class="lead">{{ project.summary }}</p>{% endif %}
+    <p class="meta project-meta">
+      {% if project.language %}<span>{{ project.language }}</span>{% endif %}
+      {% if project.stars %}<span>★ {{ project.stars }}</span>{% endif %}
+      {% if project.last_pushed_at %}<span>Updated {{ project.last_pushed_at|date:"j F Y" }}</span>{% endif %}
+    </p>
+    {% with topics=project.topic_list %}{% if topics %}
+      <ul class="tags">{% for topic in topics %}<li>{{ topic }}</li>{% endfor %}</ul>
+    {% endif %}{% endwith %}
+    <p class="actions">
+      {% if project.repo_url %}<a class="button" href="{{ project.repo_url }}">View code on GitHub</a>{% endif %}
+      {% if project.homepage_url %}<a class="button button-secondary" href="{{ project.homepage_url }}">Live demo</a>{% endif %}
+    </p>
+  </header>
+  {% if project.image %}<img class="project-image" src="{{ project.image.url }}" alt="Screenshot of {{ project.title }}">{% endif %}
+  {% if project.body %}<div class="prose">{{ project.body|linebreaks }}</div>{% endif %}
+</article>
+{% endblock %}
