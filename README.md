@@ -9,7 +9,7 @@ My personal website, built with **Django 5.2**: a home page, projects imported f
 - **Home**: intro plus the three most recent blog posts
 - **Projects**: imports your public GitHub repos (language, stars, last update) with one click in the admin. You choose which to show and feature, and can add a screenshot and write-up
 - **Blog**: list and detail pages with readable URLs (`/blog/<slug>/`), drafts, and scheduled publishing
-- **CV**: profile, work history, education, skills and hobbies, rendered as real HTML (with an optional PDF download)
+- **CV**: profile, work history, education, skills and hobbies as web text, plus your full CV as a PDF (e.g. exported from Overleaf), embedded on the page with download and open-in-new-tab buttons
 - **Contact**: message form that redirects after sending (no duplicate submissions), with a honeypot field against spam bots. Messages appear in the admin.
 - Responsive layout with automatic light/dark mode, no frontend framework needed
 
@@ -49,6 +49,13 @@ python manage.py runserver
 Then open http://127.0.0.1:8000. The admin is at http://127.0.0.1:8000/admin/.
 
 Forgot the admin password? Reset it with `python manage.py changepassword <username>`.
+
+## Updating the CV PDF
+
+1. In Overleaf, click **Download PDF**.
+2. In the admin, open **Profile**, choose the file under **CV (PDF)**, and save.
+
+The CV page embeds the PDF on larger screens and shows download/open buttons on phones. Only `.pdf` files are accepted.
 
 ## Projects from GitHub
 

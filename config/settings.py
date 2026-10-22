@@ -122,6 +122,9 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Allow this site to frame its own pages (needed to embed the CV PDF); other sites still can't.
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
 
 # Production hardening — active whenever DEBUG is off.
 if not DEBUG:

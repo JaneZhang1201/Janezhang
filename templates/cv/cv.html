@@ -12,8 +12,22 @@
       {% if site_profile.location and site_profile.email %} · {% endif %}
       {% if site_profile.email %}<a href="mailto:{{ site_profile.email }}">{{ site_profile.email }}</a>{% endif %}
     </p>
-    {% if site_profile.cv_file %}<p><a class="button" href="{{ site_profile.cv_file.url }}" download>Download CV (PDF)</a></p>{% endif %}
+    {% if site_profile.cv_file %}
+      <p class="actions">
+        <a class="button" href="{{ site_profile.cv_file.url }}" download>Download CV (PDF)</a>
+        <a class="button button-secondary" href="{{ site_profile.cv_file.url }}" target="_blank" rel="noopener">Open in new tab</a>
+      </p>
+    {% endif %}
   </header>
+
+  {% if site_profile.cv_file %}
+  <section class="cv-pdf">
+    <h2>Full CV</h2>
+    {# Phones display embedded PDFs poorly, so small screens get the buttons above instead (see site.css). #}
+    <iframe class="cv-pdf-frame" src="{{ site_profile.cv_file.url }}#view=FitH" title="CV of {{ site_profile.name }} (PDF)" loading="lazy"></iframe>
+    <p class="cv-pdf-mobile muted">Use the buttons above to view or download the full CV.</p>
+  </section>
+  {% endif %}
 
   {% if site_profile.summary %}
   <section>

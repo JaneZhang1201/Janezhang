@@ -1,3 +1,4 @@
+from django.core.validators import FileExtensionValidator
 from django.db import models
 
 
@@ -14,7 +15,14 @@ class Profile(models.Model):
     github_url = models.URLField(blank=True)
     linkedin_url = models.URLField(blank=True)
     photo = models.ImageField(upload_to="profile/", blank=True)
-    cv_file = models.FileField(upload_to="cv/", blank=True, help_text="Optional PDF visitors can download.")
+    cv_file = models.FileField(
+        "CV (PDF)",
+        upload_to="cv/",
+        blank=True,
+        validators=[FileExtensionValidator(["pdf"])],
+        help_text="The PDF exported from Overleaf. It is shown on the CV page and can be downloaded. "
+        "Upload a new file to replace it.",
+    )
 
     def __str__(self):
         return self.name

@@ -5,7 +5,16 @@ from .models import Education, Experience, Profile, Skill
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ["name", "headline", "email"]
+    list_display = ["name", "headline", "email", "has_cv_pdf"]
+    fieldsets = [
+        (None, {"fields": ["name", "headline", "intro", "photo"]}),
+        ("CV", {"fields": ["cv_file", "summary", "hobbies"]}),
+        ("Contact & links", {"fields": ["email", "location", "github_url", "linkedin_url"]}),
+    ]
+
+    @admin.display(boolean=True, description="CV PDF")
+    def has_cv_pdf(self, obj):
+        return bool(obj.cv_file)
 
 
 @admin.register(Experience)
