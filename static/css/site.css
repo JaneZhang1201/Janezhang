@@ -367,3 +367,7 @@ img { max-width: 100%; height: auto; }
   .cv-pdf-frame { display: none; }
   .cv-pdf-mobile { display: block; }
 }
+
+.cv-details { margin-top: 0.25rem; font-size: 0.95rem; }
+.skill-group { margin-bottom: 0.9rem; }
+.skill-group h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }

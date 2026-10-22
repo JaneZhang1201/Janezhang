@@ -1,6 +1,6 @@
 <header class="site-header">
   <nav class="container nav" aria-label="Main">
-    <a class="brand" href="{% url 'home' %}">{{ site_profile.name|default:"Jane Zhang" }}</a>
+    <a class="brand" href="{% url 'home' %}">{{ site_profile.name|default:"Zhaohan Zhang" }}</a>
     <ul class="nav-links">
       <li><a href="{% url 'home' %}" {% if nav_section == 'home' %}aria-current="page"{% endif %}>Home</a></li>
       <li><a href="{% url 'projects:list' %}" {% if nav_section == 'projects' %}aria-current="page"{% endif %}>Projects</a></li>

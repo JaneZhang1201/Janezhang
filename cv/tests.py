@@ -17,14 +17,14 @@ class PageTests(TestCase):
                 self.assertEqual(self.client.get(reverse(name)).status_code, 200)
 
     def test_cv_shows_profile_experience_and_skills(self):
-        Profile.objects.create(name="Jane Zhang", email="jane@example.com")
+        Profile.objects.create(name="Zhaohan Zhang", email="zhaohan@example.com")
         Experience.objects.create(
             role="Brand Ambassador", organisation="Acme", start_date=date(2020, 8, 1),
             description="First point\n- Second point",
         )
         Skill.objects.create(name="Python")
         response = self.client.get(reverse("cv"))
-        self.assertContains(response, "Jane Zhang")
+        self.assertContains(response, "Zhaohan Zhang")
         self.assertContains(response, "<li>Second point</li>", html=True)
         self.assertContains(response, "Present")
         self.assertContains(response, "Python")
@@ -52,13 +52,13 @@ class CvPdfTests(TestCase):
 
     def test_uploaded_pdf_is_embedded_and_downloadable(self):
         pdf = SimpleUploadedFile("cv.pdf", b"%PDF-1.4 test", content_type="application/pdf")
-        profile = Profile.objects.create(name="Jane", cv_file=pdf)
+        profile = Profile.objects.create(name="Zhaohan", cv_file=pdf)
         response = self.client.get(reverse("cv"))
         self.assertContains(response, f'<iframe class="cv-pdf-frame" src="{profile.cv_file.url}#view=FitH"')
         self.assertContains(response, "Download CV (PDF)")
 
     def test_no_pdf_means_no_viewer(self):
-        Profile.objects.create(name="Jane")
+        Profile.objects.create(name="Zhaohan")
         self.assertNotContains(self.client.get(reverse("cv")), "cv-pdf-frame")
 
     def test_site_may_frame_its_own_pages(self):
@@ -67,6 +67,6 @@ class CvPdfTests(TestCase):
         self.assertEqual(response.headers.get("X-Frame-Options"), "SAMEORIGIN")
 
     def test_only_pdfs_are_accepted(self):
-        profile = Profile(name="Jane", cv_file=SimpleUploadedFile("cv.docx", b"not a pdf"))
+        profile = Profile(name="Zhaohan", cv_file=SimpleUploadedFile("cv.docx", b"not a pdf"))
         with self.assertRaises(ValidationError):
             profile.full_clean()

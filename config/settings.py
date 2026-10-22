@@ -1,5 +1,5 @@
 """
-Django settings for Jane Zhang's personal site.
+Django settings for Zhaohan Zhang's personal site.
 
 Secrets and deployment-specific values come from environment variables
 (or a local `.env` file — see `.env.example`). Nothing secret lives in code.

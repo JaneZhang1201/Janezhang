@@ -45,7 +45,7 @@
     "model": "cv.profile",
     "pk": 1,
     "fields": {
-      "name": "Zhaohan (Jane) Zhang",
+      "name": "Zhaohan Zhang",
       "headline": "Computer Science graduate, University of Birmingham",
       "intro": "Welcome to my personal site. Here you'll find my CV, things I've written, and a way to get in touch.",
       "summary": "Confident and proactive, with a strong capacity for learning and good self-management.\nRigorous in my work and quick to adapt to new teams and environments.\nGood communicator with a strong sense of responsibility — full of energy and patient.",

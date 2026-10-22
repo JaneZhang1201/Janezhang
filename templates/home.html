@@ -6,7 +6,7 @@
     <img class="avatar" src="{{ site_profile.photo.url }}" alt="Photo of {{ site_profile.name }}" width="128" height="128">
   {% endif %}
   <div>
-    <h1>Hi, I'm {{ site_profile.name|default:"Jane Zhang" }}.</h1>
+    <h1>Hi, I'm {{ site_profile.name|default:"Zhaohan Zhang" }}.</h1>
     {% if site_profile.headline %}<p class="lead">{{ site_profile.headline }}</p>{% endif %}
     {% if site_profile.intro %}{{ site_profile.intro|linebreaks }}{% endif %}
     <p class="actions">

@@ -53,6 +53,8 @@ class Education(models.Model):
     location = models.CharField(max_length=100, blank=True)
     start_year = models.PositiveSmallIntegerField(null=True, blank=True)
     end_year = models.PositiveSmallIntegerField(null=True, blank=True)
+    grade = models.CharField(max_length=100, blank=True, help_text="e.g. Merit, Upper Second Class Honours")
+    details = models.TextField(blank=True, help_text="e.g. main courses.")
 
     class Meta:
         ordering = ["-end_year", "-start_year"]
@@ -64,7 +66,8 @@ class Education(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=100)
-    order = models.PositiveSmallIntegerField(default=0)
+    category = models.CharField(max_length=100, blank=True, help_text="Skills are grouped by this, e.g. 'Programming languages'.")
+    order = models.PositiveSmallIntegerField(default=0, help_text="Lower numbers come first; a category's position follows its first skill.")
 
     class Meta:
         ordering = ["order", "name"]

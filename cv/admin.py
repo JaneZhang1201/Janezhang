@@ -24,10 +24,11 @@ class ExperienceAdmin(admin.ModelAdmin):
 
 @admin.register(Education)
 class EducationAdmin(admin.ModelAdmin):
-    list_display = ["qualification", "subject", "institution", "end_year"]
+    list_display = ["qualification", "subject", "institution", "grade", "end_year"]
 
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
-    list_display = ["name", "order"]
-    list_editable = ["order"]
+    list_display = ["name", "category", "order"]
+    list_editable = ["category", "order"]
+    list_filter = ["category"]

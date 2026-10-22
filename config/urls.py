@@ -6,7 +6,7 @@ from django.urls import include, path
 from contact.views import contact
 from cv.views import cv, home
 
-admin.site.site_header = "Jane Zhang — site admin"
+admin.site.site_header = "Zhaohan Zhang — site admin"
 admin.site.site_title = "Site admin"
 
 urlpatterns = [

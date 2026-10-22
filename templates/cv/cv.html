@@ -5,7 +5,7 @@
 {% block content %}
 <div class="cv">
   <header class="cv-header">
-    <h1>{{ site_profile.name|default:"Jane Zhang" }}</h1>
+    <h1>{{ site_profile.name|default:"Zhaohan Zhang" }}</h1>
     {% if site_profile.headline %}<p class="lead">{{ site_profile.headline }}</p>{% endif %}
     <p class="meta">
       {% if site_profile.location %}{{ site_profile.location }}{% endif %}
@@ -62,7 +62,8 @@
           <h3>{{ item.qualification }}{% if item.subject %}: {{ item.subject }}{% endif %}</h3>
           {% if item.start_year or item.end_year %}<p class="meta">{{ item.start_year|default:"" }}{% if item.start_year and item.end_year %} – {% endif %}{{ item.end_year|default:"" }}</p>{% endif %}
         </div>
-        <p class="muted">{{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}</p>
+        <p class="muted">{{ item.institution }}{% if item.location %}, {{ item.location }}{% endif %}{% if item.grade %} · {{ item.grade }}{% endif %}</p>
+        {% if item.details %}<p class="cv-details">{{ item.details }}</p>{% endif %}
       </div>
     {% endfor %}
   </section>
@@ -85,7 +86,13 @@
   {% if skills %}
   <section>
     <h2>Skills</h2>
-    <ul class="tags">{% for skill in skills %}<li>{{ skill.name }}</li>{% endfor %}</ul>
+    {% regroup skills by category as skill_groups %}
+    {% for group in skill_groups %}
+      <div class="skill-group">
+        {% if group.grouper %}<h3>{{ group.grouper }}</h3>{% endif %}
+        <ul class="tags">{% for skill in group.list %}<li>{{ skill.name }}</li>{% endfor %}</ul>
+      </div>
+    {% endfor %}
   </section>
   {% endif %}
 

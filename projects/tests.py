@@ -60,7 +60,7 @@ class SyncReposTests(TestCase):
 
 class UsernameTests(TestCase):
     def test_username_comes_from_profile_github_url(self):
-        Profile.objects.create(name="Jane", github_url="https://github.com/JaneZhang1201/")
+        Profile.objects.create(name="Zhaohan", github_url="https://github.com/JaneZhang1201/")
         self.assertEqual(github_username(), "JaneZhang1201")
 
     def test_no_profile_means_no_username(self):
@@ -94,12 +94,12 @@ class ProjectPageTests(TestCase):
 class AdminImportButtonTests(TestCase):
     def setUp(self):
         self.client.force_login(User.objects.create_superuser("admin", "a@example.com", "pw"))
-        Profile.objects.create(name="Jane", github_url="https://github.com/jane")
+        Profile.objects.create(name="Zhaohan", github_url="https://github.com/zhaohan")
 
     @mock.patch("projects.github.fetch_repos", return_value=[fake_repo(1, "my-app")])
     def test_import_button_imports_and_reports(self, fetch):
         response = self.client.post(reverse("admin:projects_project_import_github"), follow=True)
-        fetch.assert_called_once_with("jane")
+        fetch.assert_called_once_with("zhaohan")
         self.assertContains(response, "1 new")
         self.assertContains(response, "Import from GitHub")
         self.assertEqual(Project.objects.count(), 1)

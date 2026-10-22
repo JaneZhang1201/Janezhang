@@ -1,4 +1,4 @@
-# Jane Zhang — Personal Site
+# Zhaohan Zhang — Personal Site
 
 My personal website, built with **Django 5.2**: a home page, projects imported from GitHub, a blog, an online CV, and a contact form. All content is edited through the Django admin.
 
